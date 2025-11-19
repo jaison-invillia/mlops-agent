@@ -11,11 +11,6 @@ As pessoas adoram como o GitHub Copilot as ajuda a escrever código mais rápido
 Mas e se o GitHub pudesse criar uma aplicação multi-camadas com apresentação e APIs baseadas em requisitos escritos em linguagem natural?
 Neste exercício, iremos usar o modo agent do GitHub Copilot para criar uma aplicação completa.
 
-- **Para quem é**: Desenvolvedores intermediários familiarizados com GitHub Copilot, GitHub básico e desenvolvimento web básico
-- **O que você vai aprender**: Apresentaremos o modo agent do GitHub Copilot e como usá-lo para desenvolvimento de aplicações.
-- **O que você vai construir**: Você usará o modo agent do GitHub Copilot para criar uma aplicação de fitness como professor de educação física de uma escola.
-- **Pré-requisitos**: Exercício de Habilidades: <a href="https://github.com/skills/getting-started-with-github-copilot">Começando com GitHub Copilot</a>.
-- **Duração**: Este curso leva menos de uma hora para ser concluído.
 
 Neste exercício, você irá:
 
@@ -36,18 +31,58 @@ Simplesmente copie o exercício para sua conta, então dê ao seu Octocat favori
 
 Ao copiar o exercício, recomendamos as seguintes configurações:
 
-- Para proprietário, escolha sua conta pessoal ou uma organização para hospedar o repositório.
 
-- Recomendamos criar um repositório público, pois repositórios privados usarão minutos do Actions.
 
 Se o exercício não estiver pronto em 20 segundos, verifique a aba "Actions" do seu repositório (ou visite `https://github.com/<SEU-USUARIO>/<SEU-REPO>/actions`).
 
-- Verifique se um job está sendo executado. Às vezes simplesmente demora um pouco mais.
 
-- Se a página mostrar um job que falhou, por favor envie uma issue. Legal, você encontrou um bug! 🐛
 
 </details>
 
----
+
+## API de Produtos (Backend)
+
+Foi adicionada uma API simples de produtos em `app/backend` com um único endpoint de listagem.
+
+### Instalação
+
+Execute a instalação das dependências (sem mudar de diretório):
+
+```bash
+npm install --prefix app/backend
+```
+
+Observação: a pasta `node_modules/` é ignorada pelo Git (entrada adicionada em `.gitignore`). Sempre execute o comando acima após clonar ou atualizar o repositório para reconstruir as dependências localmente.
+
+### Execução
+
+```bash
+npm start --prefix app/backend
+```
+
+O servidor iniciará na porta `3000`.
+
+### Endpoint
+
+- `GET /products` retorna JSON com a lista mock de produtos.
+
+Exemplo de chamada:
+
+```bash
+curl http://localhost:3000/products
+```
+
+### Estrutura dos Arquivos Principais
+
+- `app/backend/package.json` dependências e script de start
+- `app/backend/src/server.js` inicialização Express + CORS
+- `app/backend/src/routes/products.js` rota `/products`
+- `app/backend/src/data/products.js` dados mock
+
+### Observações
+
+- CORS liberado para todos os hosts (uso de `cors()` padrão).
+- Não há paginação ou filtros (implementação mínima solicitada).
+- Extensões futuras podem incluir paginação, criação/atualização e segurança adicional.
 
 &copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)

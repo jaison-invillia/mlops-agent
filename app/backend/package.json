@@ -1,0 +1,14 @@
+{
+  "name": "products-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "API de produtos (mock) com listagem",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
